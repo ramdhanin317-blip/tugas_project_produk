@@ -1,0 +1,35 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="flex justify-center items-center h-[70vh]">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-gray-200">
+            <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Login Sistem</h2>
+
+            <form action="{{ route('login') }}" method="POST" class="space-y-4">
+                @csrf
+                <div>
+                    <label class="block text-gray-700 font-medium mb-1">Email</label>
+                    <input type="email" name="email" value="{{ old('email') }}"
+                        class="w-full border rounded p-2 focus:outline-none focus:border-blue-500 @error('email') border-red-500 @enderror">
+                    @error('email')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-medium mb-1">Password</label>
+                    <input type="password" name="password"
+                        class="w-full border rounded p-2 focus:outline-none focus:border-blue-500 @error('password') border-red-500 @enderror">
+                    @error('password')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded transition">
+                    Masuk
+                </button>
+            </form>
+        </div>
+    </div>
+@endsection
