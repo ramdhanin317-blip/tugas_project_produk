@@ -3,7 +3,12 @@
 @section('content')
     <div class="flex justify-center items-center h-[70vh]">
         <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-gray-200">
-            <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Login Sistem</h2>
+
+            <div class="flex flex-col items-center mb-6">
+                <img src="{{ asset('images/logo.png') }}" alt="NR Sneaks" class="w-16 h-16 object-contain mb-2">
+
+                <h2 class="text-2xl font-bold text-gray-800 tracking-wide">NR Sneaks</h2>
+            </div>
 
             <form action="{{ route('login') }}" method="POST" class="space-y-4">
                 @csrf
@@ -27,7 +32,7 @@
 
                 <button type="submit"
                     class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded transition">
-                    Masuk
+                    Login
                 </button>
             </form>
         </div>
